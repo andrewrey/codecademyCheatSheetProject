@@ -2,7 +2,8 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: "Rubik", sans-serif; }
+  font-family: "Rubik", sans-serif;
+  box-sizing: border-box; }
 
 header {
   padding-top: 25px;
@@ -18,4 +19,15 @@ header {
     margin: 0 auto;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.5);
-    width: 80%; }
+    width: 80%;
+    padding: 25px 0;
+    border-radius: 5px; }
+
+table {
+  padding: 10px;
+  width: 80%;
+  margin: 0 auto; }
+
+th,
+td {
+  border: 1px solid black; }
