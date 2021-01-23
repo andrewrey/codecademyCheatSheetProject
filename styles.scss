@@ -7,12 +7,16 @@
   box-sizing: border-box;
 }
 
+body {
+  height: 100vh;
+}
+
 header {
   padding-top: 25px;
-  border: 1px solid black;
-  height: 30vh;
+  height: 35vh;
   background-image: url("../resources/codingPic.jpg");
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   h1 {
     font-size: 3.5rem;
@@ -27,6 +31,27 @@ header {
     border-radius: 5px;
   }
 }
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65vh;
+  background-color: black;
+  position: relative;
+}
+.table-wrap {
+  margin: 0 auto;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  background-color: rgba(lightblue, 0.6);
+  display: none;
+}
 
 table {
   padding: 10px;
@@ -36,5 +61,6 @@ table {
 
 th,
 td {
-  border: 1px solid black;
+  border: 1px solid white;
+  color: white;
 }
