@@ -5,6 +5,7 @@
   margin: 0;
   font-family: "Rubik", sans-serif;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 body {
@@ -63,4 +64,70 @@ th,
 td {
   border: 1px solid white;
   color: white;
+}
+
+.animated-background {
+  height: 100%;
+  width: 100%;
+}
+
+.pixel-wrap {
+  $pixelWidth: 10;
+  position: absolute;
+  transform: translateY(-10vh);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  .pixel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    background-image: radial-gradient(
+      hsl(180, 100%, 80%),
+      hsl(180, 100%, 80%),
+      hsla(180, 100%, 80%, 0)
+    );
+    animation: fading 200ms infinite, scaling 2s infinite;
+    @keyframes fading {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+  @for $i from 1 through 100 {
+    &:nth-child(#{$i}) {
+      $pixelSize: random($pixelWidth);
+      width: $pixelSize + px;
+      height: $pixelSize + px;
+
+      $startingPositionY: random(10) + 100;
+      $aniName: "move-" + $i;
+      $moveDuration: 7000 + random(4000) + ms;
+
+      animation-name: #{$aniName};
+      animation-duration: $moveDuration;
+      animation-delay: random(11000) + ms;
+
+      @keyframes #{$aniName} {
+        from {
+          transform: translate3d(#{random(100) + vw}, #{random(100) + vh}, 0);
+        }
+        to {
+          transform: translate3d(#{random(100) + vw}, #{random(100) + vh}, 0);
+        }
+      }
+      .pixel {
+        animation-delay: random(4000) + ms;
+      }
+    }
+  }
 }
